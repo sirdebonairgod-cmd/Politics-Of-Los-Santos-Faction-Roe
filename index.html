@@ -72,6 +72,10 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:12px;border-t
   .tiers{grid-template-columns:repeat(3,minmax(0,1fr))}
   .metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+.pt-row{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;color:#ccc;transition:background 0.15s}
+.pt-row:hover{background:rgba(255,255,255,0.02)}
+.pt-badge{font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid;flex-shrink:0;letter-spacing:.5px}
 </style>
 </head>
 <body>
@@ -150,23 +154,66 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:12px;border-t
       <div class="sec-icon" style="background:rgba(239,159,39,0.12)">📈</div>
       <div class="sec-title-wrap">
         <div class="sec-title">Tier System &amp; Points</div>
-        <div class="sec-count">5 rules</div>
+        <div class="sec-count">3 tiers · weekly cap: 50pts</div>
       </div>
       <span class="sec-arrow">›</span>
     </div>
     <div class="sec-body">
-      <div class="tiers">
-        <div class="tier"><div class="tier-name">Tier 1</div><div class="tier-pts t1">25</div><div class="tier-pts-label">points</div></div>
-        <div class="tier"><div class="tier-name">Tier 1.5</div><div class="tier-pts t1-5">45</div><div class="tier-pts-label">points</div></div>
-        <div class="tier"><div class="tier-name">Tier 2</div><div class="tier-pts t2">65</div><div class="tier-pts-label">points</div></div>
-        <div class="tier"><div class="tier-name">Tier 2.5</div><div class="tier-pts t2-5">85</div><div class="tier-pts-label">points</div></div>
-        <div class="tier t3-wrap"><div class="tier-name">Tier 3 🏆</div><div class="tier-pts t3">110</div><div class="tier-pts-label">points</div></div>
+
+      <!-- TIER REQUIREMENTS -->
+      <div style="padding:1rem 1.25rem .5rem">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px">Tier Point Requirements</div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <div class="tier" style="border-color:rgba(159,225,203,0.3)">
+            <div class="tier-name">Tier 1</div>
+            <div class="tier-pts t1">50</div>
+            <div class="tier-pts-label">points</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:6px;border-top:1px solid var(--border);padding-top:6px">Max <span style="color:#9FE1CB;font-weight:600">15</span> members</div>
+          </div>
+          <div class="tier" style="border-color:rgba(29,158,117,0.3)">
+            <div class="tier-name">Tier 2</div>
+            <div class="tier-pts t2">350</div>
+            <div class="tier-pts-label">points</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:6px;border-top:1px solid var(--border);padding-top:6px">Max <span style="color:#1D9E75;font-weight:600">25</span> members</div>
+          </div>
+          <div class="tier t3-wrap">
+            <div class="tier-name">Tier 3 🏆</div>
+            <div class="tier-pts t3">700</div>
+            <div class="tier-pts-label">points</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:6px;border-top:1px solid rgba(239,159,39,0.3);padding-top:6px">Max <span style="color:var(--gold);font-weight:600">40</span> members</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;font-size:11px;color:var(--muted);background:rgba(239,159,39,0.06);border:1px solid rgba(239,159,39,0.15);border-radius:6px;padding:8px 12px">
+          ⚠️ <span style="color:var(--gold);font-weight:600">Unofficial factions</span> are limited to a maximum of <span style="color:var(--gold);font-weight:600">10 members</span> until they reach Tier 1.
+        </div>
       </div>
-      <div class="rules-list">
+
+      <!-- POINT SYSTEM TABLE -->
+      <div style="padding:.5rem 1.25rem 1rem">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px">How To Earn Points</div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr auto;font-size:10px;color:var(--muted);padding:7px 14px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.8px">
+            <span>Activity</span><span>Points</span>
+          </div>
+          <div class="pt-row"><span>Screens</span><span class="pt-badge" style="background:rgba(239,159,39,0.12);color:var(--gold);border-color:rgba(239,159,39,0.25)">+3</span></div>
+          <div class="pt-row"><span>Activity Posts <span style="color:var(--muted);font-size:10px">(once/day)</span></span><span class="pt-badge" style="background:rgba(239,159,39,0.12);color:var(--gold);border-color:rgba(239,159,39,0.25)">+4</span></div>
+          <div class="pt-row"><span>Block Party <span style="color:var(--muted);font-size:10px">(once/2 days)</span></span><span class="pt-badge" style="background:rgba(239,159,39,0.15);color:var(--gold);border-color:rgba(239,159,39,0.3)">+10</span></div>
+          <div class="pt-row"><span>CK'ing a Rival</span><span class="pt-badge" style="background:rgba(226,75,74,0.12);color:var(--accent);border-color:rgba(226,75,74,0.25)">+10</span></div>
+          <div class="pt-row"><span>Positive Interaction</span><span class="pt-badge" style="background:rgba(99,153,34,0.12);color:var(--green);border-color:rgba(99,153,34,0.25)">+3</span></div>
+          <div class="pt-row"><span>Negative Interaction</span><span class="pt-badge" style="background:rgba(99,153,34,0.12);color:var(--green);border-color:rgba(99,153,34,0.25)">+3</span></div>
+          <div class="pt-row"><span>Posting a Song for your Faction</span><span class="pt-badge" style="background:rgba(239,159,39,0.12);color:var(--gold);border-color:rgba(239,159,39,0.25)">+8</span></div>
+          <div class="pt-row"><span>Winning a Faction War</span><span class="pt-badge" style="background:rgba(226,75,74,0.15);color:var(--accent);border-color:rgba(226,75,74,0.3)">+20</span></div>
+          <div class="pt-row"><span>Faction Promotion</span><span class="pt-badge" style="background:rgba(239,159,39,0.15);color:var(--gold);border-color:rgba(239,159,39,0.3)">+10</span></div>
+          <div class="pt-row" style="border-bottom:none"><span>Menyoo Photos</span><span class="pt-badge" style="background:rgba(239,159,39,0.08);color:var(--gold);border-color:rgba(239,159,39,0.2)">+1</span></div>
+        </div>
+        <div style="margin-top:8px;font-size:11px;color:var(--muted);background:rgba(226,75,74,0.06);border:1px solid rgba(226,75,74,0.2);border-radius:6px;padding:8px 12px">
+          🔴 <span style="color:var(--accent);font-weight:600">MAXIMUM 50 POINTS</span> earned per weekly drop. Faction Management may award bonus points at their discretion.
+        </div>
+      </div>
+
+      <div class="rules-list" style="border-top:1px solid var(--border)">
         <div class="rule"><span class="rule-num">–</span><span class="rule-text">Factions must reach <span class="pill">Tier 3</span> before organizing a Long-Term War.</span></div>
-        <div class="rule"><span class="rule-num">–</span><span class="rule-text">Factions that host events earn <span class="pill">$15,000 per event</span> + <span class="pill pill-green">5 points</span> toward tier ups.</span></div>
-        <div class="rule"><span class="rule-num">–</span><span class="rule-text">Screens count as <span class="pill">2 points</span> toward tier ups.</span></div>
-        <div class="rule"><span class="rule-num">–</span><span class="rule-text">Having 10+ members outside daily consistently earns faction points — contact FM for more info.</span></div>
+        <div class="rule"><span class="rule-num">–</span><span class="rule-text">Factions that host events earn <span class="pill">$15,000 per event</span> + bonus points toward tier ups.</span></div>
         <div class="rule"><span class="rule-num">–</span><span class="rule-text">If a faction receives a strike, all schemes are postponed and they are put on a <span class="pill pill-red">15-day probationary period</span>.</span></div>
       </div>
     </div>
